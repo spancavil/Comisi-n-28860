@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.show-button{
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+}
