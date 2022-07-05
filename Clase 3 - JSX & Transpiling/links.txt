@@ -1,0 +1,1 @@
+https://babeljs.io => Ejemplo de cómo sería el traspilado de JSX a lenguaje de React.
