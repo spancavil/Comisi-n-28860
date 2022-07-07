@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button';
+import CartWidget from '../CartWidget';
 import './styles.css';
 
 export default function NavBar({temperatura, opcionAdicional}) {
@@ -14,7 +15,7 @@ export default function NavBar({temperatura, opcionAdicional}) {
             <li><a href="#contact">Ropa femenina</a></li>
             <li><a href="#about">Accesorios</a></li>
             <li><a href={`#${opcionAdicional}`}>{opcionAdicional}</a></li>
-            <Button/>
+            <CartWidget/>
         </ul>
     )
 } 
