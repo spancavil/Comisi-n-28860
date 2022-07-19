@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
+import ItemDetailContainer from './container/ItemDetailContainer';
 import ItemListContainer from './container/ItemListContainer';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       <NavBar temperatura={temp} opcionAdicional={opcion}/>
-      <ItemListContainer greeting={"Hola comisión 28860"}/>
+      {/* <ItemListContainer greeting={"Hola comisión 28860"}/> */}
+      <ItemDetailContainer />
     </>
   );
 }

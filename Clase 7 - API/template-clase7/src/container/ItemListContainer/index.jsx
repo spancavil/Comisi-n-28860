@@ -29,7 +29,7 @@ const ItemListContainer = ({greeting}) => {
         alert(`Hubo un error: ${error.message}`)
       }
     }
-    
+
     getPokemons();
 
   }, [])
@@ -40,7 +40,7 @@ const ItemListContainer = ({greeting}) => {
   //vamos a utilizar el método MAP.
   //El método map recorre cada uno de los elementos, lo procesa y me devuelve otro elemento procesado
   return (
-    <ItemList products={productos}/>
+    <ItemList pokemons={pokemons}/>
   )
 }
 

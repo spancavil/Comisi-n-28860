@@ -1,9 +1,9 @@
 import React from 'react'
 
 //Es como si fuera una card del producto
-const Item = ({producto}) => {
+const Item = ({pokemon}) => {
   return (
-    <p>{producto.name}</p>
+    <p>{pokemon.name}</p>
   )
 }
 
