@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //Es como si fuera una card del producto
 const Item = ({ pokemon }) => {
-  console.log(pokemon);
+
+  const navigate = useNavigate();
+
+  const handleNavigate = (id) => {
+    navigate(`/item/${id}`)
+  }
   return (
     <div
       style={{
@@ -12,8 +18,10 @@ const Item = ({ pokemon }) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        cursor: 'pointer',
       }}
+      onClick = {()=> handleNavigate(pokemon.id)}
     >
       <img src={pokemon.sprites.front_default} width="200px" alt='poke'/>
       <p>{pokemon.name}</p>

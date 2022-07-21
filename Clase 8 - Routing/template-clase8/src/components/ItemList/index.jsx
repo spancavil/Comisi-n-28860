@@ -2,11 +2,11 @@ import React from 'react'
 import Item from '../Item'
 
 const ItemList = ({pokemons}) => {
-  console.log(pokemons);
   return (
     <div style={{
       display: 'flex',
       flexDirection: 'row',
+      justifyContent: 'center',
       flexWrap: 'wrap',
       gap: '20px',
     }}>

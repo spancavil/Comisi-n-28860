@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList';
-import { productosRaw } from '../../mocks/productos';
 
 const ItemListContainer = ({ greeting }) => {
 
+  const [pokemonsOriginales, setPokemonsOriginales] = useState([])
   const [pokemons, setPokemons] = useState([])
 
   /* const traerProductos = new Promise ((accept, reject)=> {
@@ -12,6 +13,9 @@ const ItemListContainer = ({ greeting }) => {
     }, 3000)
   })
  */
+  const {categoryId} = useParams();
+
+  console.log(categoryId);
 
   //Queremos que la petición a la API se ejecute cuando montamos el componente
   useEffect(() => {
@@ -19,26 +23,35 @@ const ItemListContainer = ({ greeting }) => {
     //La petición debe estar en una función asíncrona
     const getPokemons = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
-        const data = await response.json();
-        // console.log(data);
-        // setPokemons(data.results);
-        const auxiliar = []
-        for (const pokemon of data.results) {
-          const response = await fetch(pokemon.url);
-          const detailPokemon = await response.json();
-          // console.log(detailPokemon)
-          auxiliar.push(detailPokemon);
+
+        if (pokemonsOriginales.length === 0){
+          const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=30')
+          const data = await response.json();
+          // console.log(data);
+          // setPokemons(data.results);
+          const auxiliar = []
+          for (const pokemon of data.results) {
+            const response = await fetch(pokemon.url);
+            const detailPokemon = await response.json();
+            // console.log(detailPokemon)
+            auxiliar.push(detailPokemon);
+          }
+          setPokemonsOriginales(auxiliar)
+
+        } else {
+          let pokemonsFiltrados = [...pokemonsOriginales]
+          if(categoryId) {
+            pokemonsFiltrados = pokemonsOriginales.filter(pokemon => pokemon.types[0].type.name === categoryId)
+          }
+          setPokemons(pokemonsFiltrados)
         }
-        setPokemons(auxiliar)
+
       } catch (error) {
         alert(`Hubo un error: ${error.message}`)
       }
     }
-
     getPokemons();
-
-  }, [])
+  }, [categoryId, pokemonsOriginales])
 
   console.log(pokemons);
 

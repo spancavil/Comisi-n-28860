@@ -14,6 +14,8 @@ export default function NavBar({ temperatura, opcionAdicional }) {
             <li><Link to="/category/grass">Type: grass</Link></li>
             <li><Link to="/category/fire">Type: fire</Link></li>
             <li><Link to="/category/water">Type: water</Link></li>
+            <li><Link to="/category/normal">Type: normal</Link></li>
+            <li><Link to="/category/poison">Type: poison</Link></li>
             <CartWidget />
         </ul>
     )
