@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList';
+import Modal from '../../components/Modal';
 
 const ItemListContainer = ({ greeting }) => {
 
   const [pokemonsOriginales, setPokemonsOriginales] = useState([])
   const [pokemons, setPokemons] = useState([])
+  const [modalVisible, setModalVisible] = useState(false)
 
   /* const traerProductos = new Promise ((accept, reject)=> {
     setTimeout(()=> {
@@ -14,8 +16,6 @@ const ItemListContainer = ({ greeting }) => {
   })
  */
   const {categoryId} = useParams();
-
-  console.log(categoryId);
 
   //Queremos que la petición a la API se ejecute cuando montamos el componente
   useEffect(() => {
@@ -53,13 +53,19 @@ const ItemListContainer = ({ greeting }) => {
     getPokemons();
   }, [categoryId, pokemonsOriginales])
 
-  console.log(pokemons);
+  const handleModal = () => {
+    setModalVisible(true);
+  }
 
   //Siempre que tengamos un array y queramos renderizar el contenido de cada elemento,
   //vamos a utilizar el método MAP.
   //El método map recorre cada uno de los elementos, lo procesa y me devuelve otro elemento procesado
   return (
-    <ItemList pokemons={pokemons} />
+    <>
+      <ItemList pokemons={pokemons} />
+      <button onClick={handleModal}>Show modal</button>
+      {modalVisible && <Modal handleClose={()=> setModalVisible(false)}/>}
+    </>
   )
 }
 
