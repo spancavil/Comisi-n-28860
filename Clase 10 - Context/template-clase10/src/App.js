@@ -14,18 +14,20 @@ function App() {
   const opcion = "Decoracion"
 
   return (
-    <ShopProvider>
-      <BrowserRouter>
-        <NavBar temperatura={temp} opcionAdicional={opcion}/>
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-          <Route path='/cart' element={<CartContainer/>}/>
-          <Route path='*' element={<NotFound/>}/>
-        </Routes>
-      </BrowserRouter>
-    </ShopProvider>
+    // <DarkModeProvider>
+      <ShopProvider>
+        <BrowserRouter>
+          <NavBar temperatura={temp} opcionAdicional={opcion}/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<CartContainer/>}/>
+            <Route path='*' element={<NotFound/>}/>
+          </Routes>
+        </BrowserRouter>
+      </ShopProvider>
+    // </DarkModeProvider> 
   );
 }
 

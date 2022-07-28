@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ShopData } from '../../context/Shop';
 import ItemCount from '../ItemCount';
 import './styles.css';
 
 const ItemDetail = ({ pokemonDetail }) => {
+
+    const {addItem} = useContext(ShopData);
 
     const [quantity, setQuantity] = useState(0);
     const navigate = useNavigate()
@@ -11,6 +14,7 @@ const ItemDetail = ({ pokemonDetail }) => {
     const onAddCart = (quantity) => {
         console.log("Se agrega al cart la cantidad: ", quantity);
         setQuantity(quantity)
+        addItem(pokemonDetail, quantity)
     }
 
     const onConfirm = () => {

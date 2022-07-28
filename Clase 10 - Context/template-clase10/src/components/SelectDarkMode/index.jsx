@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { ShopData } from '../../context/Shop'
+import { ShopData } from '../../context/Shop';
+import './styles.css';
 
 const SelectDarkMode = () => {
 
@@ -12,14 +13,13 @@ const SelectDarkMode = () => {
     } 
 
     return (
-        <>
+        <div className='select-container'>
             <label>Theme:</label>
-
-            <select name="cars" id="cars" onChange={handleDarkMode}>
+            <select className='select-mode' onChange={handleDarkMode} defaultValue="dark">
                 <option value="light">Light</option>
                 <option value="dark">Dark</option>
             </select>
-        </>
+        </div>
     )
 }
 
