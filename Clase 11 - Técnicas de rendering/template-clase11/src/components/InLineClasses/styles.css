@@ -1,0 +1,12 @@
+.clase-base{
+    color: green;
+}
+
+.clase-verdadera{
+    font-size: 32px;
+}
+
+.clase-falsa{
+    font-size: 20px;
+    font-style: italic;
+}
