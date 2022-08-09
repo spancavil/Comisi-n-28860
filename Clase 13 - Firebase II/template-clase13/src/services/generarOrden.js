@@ -1,9 +1,9 @@
 //Función auxiliar para generar la orden.
-const ordenGenerada = (nombre, direccion, cart, total) => {
+const ordenGenerada = (nombre, email, cart, total) => {
     return {
         buyer: {
             nombre: nombre,
-            direccion: direccion
+            email: email
         },
         items: cart
         ,
