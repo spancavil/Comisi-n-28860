@@ -30,7 +30,7 @@ const ItemDetail = ({ pokemonDetail }) => {
                     <p>Tipo: {pokemonDetail.types[0].type.name}</p>
                     <p>Peso: {pokemonDetail.weight}</p>
                     {quantity === 0 ?
-                        <ItemCount stock={10} handleAddCart={onAddCart} />
+                        <ItemCount stock={pokemonDetail.stock} handleAddCart={onAddCart} />
                         :
                         <button onClick={onConfirm}>Terminar mi compra</button>
                     }
